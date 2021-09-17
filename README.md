@@ -13,6 +13,8 @@ Run UI using:
 
 Run Postgres and Server using: 
 ```
-docker-compose up -d to run
+docker-compose up -d
+cd api
+uvicorn app.main:app --port 8000
 ```
 
