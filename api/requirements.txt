@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+fastapi-users[sqlalchemy]
+python-multipart
+databases
+asyncpg
+configparser
+psycopg2-binary
+pydantic
+requests
+python-dotenv

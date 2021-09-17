@@ -1,0 +1,50 @@
+<div class="cart-container">
+  <div class="header mat-elevation-z1">
+    <div class="d-flex flex-row align-items-center">
+      <h1>Your Cart</h1>
+      <div class="ms-auto py-2 d-flex flex-row align-items-center">
+        <ng-container *ngIf="cartService.grandTotal > 0">
+          <div class="me-2">Grand Total: </div>
+          <div class="price me-3">
+            ₹{{ cartService.grandTotal }}
+          </div>
+          <button mat-flat-button color="primary" (click)="onPlaceOrder()" class="me-2">Place Order</button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="cartService.items.length === 0">
+    <p class="p-5 text-center">You have no items in cart</p>
+  </ng-container>
+  <mat-accordion multi>
+    <ng-container *ngFor="let cartItem of cartService.items">
+      <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <div>{{ cartItem.product.name }}</div>
+            <div class="ms-2 me-3 d-flex flex-row align-items-center total">
+              <div>Total:</div>
+              <div class="ms-2 price">₹{{ (cartItem.product.price * cartItem.quantity) }}</div>
+            </div>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="product-details">
+          <img [src]="cartItem.product.image_url" [attr.alt]="cartItem.product.name">
+          <div class="ms-auto d-flex flex-row align-items-center">
+            <div class="ms-2 me-3 d-flex flex-row align-items-center">
+              <div>Price:</div>
+              <div class="ms-2 price">₹{{ cartItem.product.price }}</div>
+            </div>
+            <div class="ms-2 me-3 d-flex flex-row align-items-center">
+              <div>Quantity:</div>
+              <i class="ms-2 bi bi-dash-circle-fill pointer" (click)="decreaseQuantity(cartItem)"></i>
+              <div class="ms-2 price me-2">{{ cartItem.quantity }}</div>
+              <i class="bi bi-plus-circle-fill pointer" (click)="increaseQuantity(cartItem)"></i>
+            </div>
+
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </ng-container>
+  </mat-accordion>
+</div>

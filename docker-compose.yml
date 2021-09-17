@@ -1,0 +1,21 @@
+version: "3.1"
+networks:
+  shopprnet:
+    driver: bridge
+services:
+  pg:
+    image: postgres
+    container_name: pg
+    hostname: pghost
+    networks:
+      - shopprnet
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
+    driver: local

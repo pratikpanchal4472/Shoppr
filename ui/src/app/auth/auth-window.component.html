@@ -1,0 +1,51 @@
+<section>
+  <div class="mb-3">
+    <div class="logo">Shoppr</div>
+  </div>
+  <mat-tab-group mat-stretch-tabs [(selectedIndex)]="tabIndex">
+    <mat-tab label="Login">
+      <ng-template matTabContent>
+        <form (submit)="onLogin()" class="box" [formGroup]="loginFormGroup">
+          <div class="mb-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Enter your email" formControlName="email" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" placeholder="Password" formControlName="password" required>
+            </mat-form-field>
+          </div>
+          <button mat-flat-button color="primary" type="submit">Sign In</button>
+        </form>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Register">
+      <ng-template matTabContent>
+        <form (submit)="onRegister()" class="box" [formGroup]="registerFormGroup">
+          <div class="mb-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Enter your Name" formControlName="name" required>
+            </mat-form-field>
+          </div>
+          <div class="mb-3">
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Enter your email" formControlName="email" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" placeholder="Password" formControlName="password" required>
+            </mat-form-field>
+          </div>
+          <button mat-flat-button color="primary" type="submit">Register</button>
+        </form>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</section>

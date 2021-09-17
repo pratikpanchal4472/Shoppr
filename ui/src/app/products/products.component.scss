@@ -1,0 +1,46 @@
+.products-container {
+  .filters {
+    position: sticky;
+    top: 60px;
+    height: 80px;
+    padding: 5px;
+    background: #fff;
+    margin: 0 30px;
+    z-index: 1;
+    border-radius: 4px;
+  }
+  .products {
+    display: flex;
+    flex: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    mat-card {
+      flex-basis: 22%;
+      margin:15px;
+      .mat-card-image {
+        padding: 0px 30px;
+        height: 15rem;
+      }
+      mat-card-title {
+        height:50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: pre-wrap;
+        word-wrap: normal;
+        font-size: 16px;
+        color: #444;
+      }
+
+      .price {
+        color: #B12704;
+        font-size: 21px;
+      }
+
+      .stock{
+        font-size: 16px;
+      }
+    }
+  }
+}
+
